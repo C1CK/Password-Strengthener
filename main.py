@@ -1,3 +1,5 @@
+import Dependencies.pyperclip as pyperclip
+
 elements={"h":"hydrogen",
 	"he":"helium",
 	"li":"lithium",
@@ -138,8 +140,14 @@ def char_rep(start):
     return(end)
             
 while True:
-    print(char_rep(input("Enter Password To Lengthen: ")))
-
+    inp = input("Enter Password To Lengthen: ")
+    if inp == "":
+        print(pyperclip.paste())
+        inp = pyperclip.paste()
+    output = (char_rep(inp))
+    print(output)
+    pyperclip.copy(output)
+    
 
 
 
